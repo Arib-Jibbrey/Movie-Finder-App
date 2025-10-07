@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@layer utilities{
+  .text-gradient{
+    @apply bg-gradient-to-r from-white to-[rgb(54,3,90)] bg-clip-text text-transparent
+  }
+
+  .center-items{
+    @apply flex flex-col justify-center items-center
+  }
+
+  .bg-img{
+    background-image: url(/BG.png);
+    background-position: center top;
+    @apply bg-cover 
+  }
+}
+
+@layer components{
+  .movie-card{
+    @apply bg-gray-900 p-5 rounded-2xl border-1 border-gray-800 shadow-2xl m-5 hover:scale-105 bg-gradient-to-b from-gray-900 to-indigo-950
+  }
+}
