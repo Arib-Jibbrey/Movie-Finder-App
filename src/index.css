@@ -21,8 +21,30 @@
 
 @layer components{
   .movie-card{
-    @apply bg-gray-900 p-5 rounded-2xl border-1 border-gray-800 shadow-2xl m-5 hover:scale-105 bg-gradient-to-b from-gray-900 to-indigo-950
+    @apply bg-gray-900 p-2 border-1 border-gray-800 shadow-2xl m-4 hover:scale-105 bg-gradient-to-b from-gray-900 to-indigo-950 h-110 w-60 relative
+  }
+
+  .movie-poster{
+    @apply object-cover w-full h-full}
+
+  .movie-insights{
+    font-size: 13px;
+    @apply flex items-center absolute bottom-0 left-0 m-2 text-gray-400
+}
+
+  .dot{
+    @apply h-1 w-1 bg-gray-400 rounded-full mx-2
   }
 }
+
+.movie-title{
+  font-weight: bold;
+  color: white;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+
+
 
 

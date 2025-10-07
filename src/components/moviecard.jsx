@@ -5,8 +5,11 @@ function MovieCard(prop){
     return (
         <div className="movie-card justify-center items-center">
             {imgURL ?
-            <img src= {imgURL} /> :
-            <img className="" src="../public/placeholder.png"/>} //testing 1 2 3 
+            <div className="w-full h-80 mb-3"><img className="movie-poster" src= {imgURL} /></div> :
+            <img className="" src="/placeholder.png" alt="no poster available"/>}
+            <h1 className="movie-title pb-3">{movie.title}</h1>
+
+            <div className=" movie-insights"><img className="w-4 h-4" src="/star.png"/><div className="text-white font-bold">{(movie.vote_average/2).toFixed(1 )}</div><span className="dot"></span><div className="font-medium">{movie.original_language}</div><span className="dot"></span><div className="font-medium">{(movie.release_date).split("-")[0]}</div></div>
         </div>)
         
 

@@ -3,7 +3,7 @@ import React,{useState, useEffect} from "react"
 import Loading from "./components/loading.jsx"
 import MovieCard from "./components/moviecard.jsx"
 
-const API_BASE_URL = 'https://api.themoviedb.org/3'
+const API_BASE_URL = 'https:/api.themoviedb.org/3'
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY
 const API_OPTIONS = {
     method:'GET',
@@ -69,7 +69,7 @@ function App() {
               {isLoading ? 
               <Loading /> : 
               errorMessage ? <p className="text-red-500">{errorMessage}</p> :
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-wrap gap-0 justify-center">
               {movieList.map((movie)=>(<MovieCard key={movie.id} movie={movie} />))}
               </div>
 }
