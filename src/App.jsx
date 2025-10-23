@@ -1,20 +1,12 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Search from "./components/search.jsx"
 import React,{useState, useEffect} from "react"
 import Loading from "./components/loading.jsx"
 import MovieCard from "./components/moviecard.jsx"
+import MoviePage from "./components/moviePage.jsx"
+import {API_BASE_URL, API_OPTIONS} from "./api-config.js"
 
-const API_BASE_URL = 'https:/api.themoviedb.org/3'
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY
-const API_OPTIONS = {
-    method:'GET',
-    headers: {
-      accept: 'application/json',
-      authorization: `Bearer ${API_KEY}`
-    }
-   }
-
-
-function App() {
+function Home() {
   const [searchText, setSearchText] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [isLoading, setISLoading] = useState(false)
@@ -36,10 +28,6 @@ function App() {
       setMovieList(data.results)
       console.log(movieList);
       
-      
-      
-      
-      
     }catch(error){console.error(`Error fetching Movies. Json() failed:${error}`); setErrorMessage('something went wrong :(')}
     setISLoading(false)
   }
@@ -50,11 +38,10 @@ function App() {
     },[]
   )
 
-  
-
+  //redering the home page
   return (
    
-    <main className="pl-5 pr-5 min-h-screen w-full">
+    <main className="pl-5 pr-5 w-full min-h-screen absolute z-0">
         <header className="center-items">
           
           <div className=" h-[350px] md:h-[400px] overflow-hidden"><img src="../public/hero-img.png" className="object-cover"/></div>
@@ -70,7 +57,7 @@ function App() {
               <Loading /> : 
               errorMessage ? <p className="text-red-500">{errorMessage}</p> :
               <div className="flex flex-wrap gap-0 justify-center">
-              {movieList.map((movie)=>(<MovieCard key={movie.id} movie={movie} />))}
+              {movieList.map((movie)=>(<MovieCard key={movie.id} movie={movie}/>))}
               </div>
 }
           </div>
@@ -80,5 +67,21 @@ function App() {
   
   )
 }
+
+function App(){
+  return(
+
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/movie/:id" element={<MoviePage/>}/>
+      </Routes>
+    </BrowserRouter>
+    
+  )
+
+
+}
+
 
 export default App

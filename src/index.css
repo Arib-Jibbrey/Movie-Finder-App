@@ -10,18 +10,18 @@
   }
 
   .bg-img{
-    height: 100vw;
+  
     background-image: url(/BG.png);
     background-position: center top;
-    
+    width: 100%;
 
-    @apply bg-contain bg-no-repeat
+    @apply bg-cover bg-no-repeat 
   }
 }
 
 @layer components{
   .movie-card{
-    @apply bg-gray-900 p-2 border-1 border-gray-800 shadow-2xl m-4 hover:scale-105 bg-gradient-to-b from-gray-900 to-indigo-950 h-110 w-60 relative
+    @apply bg-gray-900 p-2 border-1 border-gray-800 shadow-2xl m-4 hover:scale-105 bg-gradient-to-b from-gray-900 to-indigo-950 h-110 w-60 relative cursor-pointer
   }
 
   .movie-poster{
@@ -29,7 +29,7 @@
 
   .movie-insights{
     font-size: 13px;
-    @apply flex items-center absolute bottom-0 left-0 m-2 text-gray-400
+    @apply flex items-center absolute text-gray-400
 }
 
   .dot{
