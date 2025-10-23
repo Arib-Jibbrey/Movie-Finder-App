@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {useDebounce} from "react-use"     // to debounce the search input to reduce the number of API calls
 import Search from "./components/search.jsx"
-import React,{useState, useEffect} from "react"
+import React,{useState, useEffect, use} from "react"
 import Loading from "./components/loading.jsx"
 import MovieCard from "./components/moviecard.jsx"
 import MoviePage from "./components/moviePage.jsx"
@@ -11,6 +12,8 @@ function Home() {
   const [errorMessage, setErrorMessage] = useState('')
   const [isLoading, setISLoading] = useState(false)
   const [movieList, setMovieList] = useState([])
+  const [debouncedSearchText, setDebouncedSearchText] = useState('')
+  useDebounce(()=> setDebouncedSearchText(searchText), 700, [searchText])
 
   const fetchMovies = async(query = '')=>{
     setISLoading(true)
@@ -34,8 +37,8 @@ function Home() {
 
   useEffect(
     ()=>{
-      fetchMovies(searchText)
-    },[searchText]
+      fetchMovies(debouncedSearchText)
+    },[debouncedSearchText]
   )
 
   //redering the home page
