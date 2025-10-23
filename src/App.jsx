@@ -12,10 +12,10 @@ function Home() {
   const [isLoading, setISLoading] = useState(false)
   const [movieList, setMovieList] = useState([])
 
-  const fetchMovies = async()=>{
+  const fetchMovies = async(query = '')=>{
     setISLoading(true)
     try{
-      const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`
+      const endpoint = query? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`:`${API_BASE_URL}/discover/movie?sort_by=popularity.desc`
 
       const response = await fetch(endpoint, API_OPTIONS)
       if(!response.ok){
@@ -34,8 +34,8 @@ function Home() {
 
   useEffect(
     ()=>{
-      fetchMovies()
-    },[]
+      fetchMovies(searchText)
+    },[searchText]
   )
 
   //redering the home page
