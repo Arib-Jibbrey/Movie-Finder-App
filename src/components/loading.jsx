@@ -2,9 +2,7 @@ import {BeatLoader} from 'react-spinners'
 
 function Loading(){
 
-        return <BeatLoader color='white'
-        
-        />
+        return <BeatLoader color='white'className='mt-5'/>
     
 }
 

@@ -35,6 +35,10 @@
   .dot{
     @apply h-1 w-1 bg-gray-400 rounded-full mx-2
   }
+
+  .back-icon{
+    @apply h-8 w-8 cursor-pointer 
+  }
 }
 
 .movie-title{
