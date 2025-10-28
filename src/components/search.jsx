@@ -6,7 +6,7 @@ const Search = (prop) => {
 
   return (
     <div className="flex flex-row justify-center items-center border rounded-2xl w-64 mx-auto p-3.5 border-[rgb(111,111,111)]">
-        <img src="public/search.png" className="mr-5"/>
+        <img src="../public/search.png" className="mr-5"/>
         <input type="text" placeholder="Search for Movie" className="outline-none text-white" onChange={handleSearchText}/>
     </div>
   )
