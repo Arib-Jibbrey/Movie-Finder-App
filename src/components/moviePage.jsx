@@ -64,7 +64,7 @@ function MoviePage(){
                 <div className="mt-10 text-justify">
                     <h1 className="text-white font-medium mb-5">{movie.tagline||"No tagline available"}</h1>
                     <h2 className="text-white">{movie.overview||"No description available"}</h2>
-                    <div className=" movie-insights mt-10"><img className="w-4 h-4" src="/star.png"/><div className="text-white font-bold">{(movie.vote_average/2).toFixed(1 )}</div><span className="dot"></span><div className="font-medium">{movie.original_language}</div><span className="dot"></span><div className="font-medium">{(movie.release_date)?.split("-")[0]}</div></div>
+                    <div className=" movie-insights mt-10"><img className="w-4 h-4" src="../star.png"/><div className="text-white font-bold">{(movie.vote_average/2).toFixed(1 )}</div><span className="dot"></span><div className="font-medium">{movie.original_language}</div><span className="dot"></span><div className="font-medium">{(movie.release_date)?.split("-")[0]}</div></div>
                 </div>
             </div>
             }   

@@ -47,7 +47,7 @@ function Home() {
     <main className="pl-5 pr-5 w-full min-h-screen absolute z-0">
         <header className="center-items">
           
-          <div className=" h-[350px] md:h-[400px] overflow-hidden"><img src="../public/hero-img.png" className="object-cover"/></div>
+          <div className=" h-[350px] md:h-[400px] overflow-hidden"><img src="public/hero-img.png" className="object-cover"/></div>
           <h1 className="font-bold font-sans text-4xl pt-0 pb-10 text-center text-white">Find Your Favourite <span className="text-gradient">Movies</span> without the hassle</h1>
         </header>        
         <Search searchText={searchText} setSearchText = {setSearchText}/>
@@ -72,7 +72,7 @@ function Home() {
 function App(){
   return(
 
-    <BrowserRouter>
+    <BrowserRouter basename="/Movie-Finder-App/">
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/movie/:id" element={<MoviePage/>}/>
