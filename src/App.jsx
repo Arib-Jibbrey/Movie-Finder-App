@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {useDebounce} from "react-use"     // to debounce the search input to reduce the number of API calls
+import {useDebounce} from "react-use"     // to debounce the search input to reduce the number of API calls(optimise search)
 import Search from "./components/search.jsx"
 import React,{useState, useEffect, use} from "react"
 import Loading from "./components/loading.jsx"
@@ -51,8 +51,6 @@ function Home() {
           <h1 className="font-bold font-sans text-4xl pt-0 pb-10 text-center text-white">Find Your Favourite <span className="text-gradient">Movies</span> without the hassle</h1>
         </header>        
         <Search searchText={searchText} setSearchText = {setSearchText}/>
-        <p className="text-white text-center">{searchText}</p>
-
         <section>
           <h2 className="text-white font-medium text-2xl" >All Movies:</h2>
           <div>
@@ -74,7 +72,7 @@ function Home() {
 function App(){
   return(
 
-    <BrowserRouter>
+    <BrowserRouter basename="/Movie-Finder-App/">
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/movie/:id" element={<MoviePage/>}/>
