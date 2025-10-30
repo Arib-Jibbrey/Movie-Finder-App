@@ -6,6 +6,7 @@ import Loading from "./components/loading.jsx"
 import MovieCard from "./components/moviecard.jsx"
 import MoviePage from "./components/moviePage.jsx"
 import {API_BASE_URL, API_OPTIONS} from "./api-config.js"
+import { createRoot } from 'react-dom/client'
 
 function Home() {
   const [searchText, setSearchText] = useState('')
@@ -72,7 +73,7 @@ function Home() {
 function App(){
   return(
 
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/movie/:id" element={<MoviePage/>}/>
