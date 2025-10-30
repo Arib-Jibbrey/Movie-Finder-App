@@ -1,4 +1,5 @@
 import {useNavigate} from "react-router-dom"
+const starIconSrc = `${import.meta.env.BASE_URL || '/'}star.png`
 
 function MovieCard(prop){
     const movie = prop.movie;
@@ -21,7 +22,7 @@ function MovieCard(prop){
             <img className="" src="/placeholder.png" alt="no poster available"/>}
             <h1 className="movie-title pb-3">{movie.title}</h1>
 
-            <div className=" movie-insights bottom-4 "><img className="w-4 h-4" src="../public/star.png"/><div className="text-white font-bold">{(movie.vote_average/2).toFixed(1 )}</div><span className="dot"></span><div className="font-medium">{movie.original_language}</div><span className="dot"></span><div className="font-medium">{(movie.release_date)?.split("-")[0]}</div></div>
+            <div className=" movie-insights bottom-4 "><img className="w-4 h-4" src={starIconSrc}/><div className="text-white font-bold">{(movie.vote_average/2).toFixed(1 )}</div><span className="dot"></span><div className="font-medium">{movie.original_language}</div><span className="dot"></span><div className="font-medium">{(movie.release_date)?.split("-")[0]}</div></div>
         </div>)
         
 

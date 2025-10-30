@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import {useDebounce} from "react-use"     // to debounce the search input to reduce the number of API calls(optimise search)
 import Search from "./components/search.jsx"
 import React,{useState, useEffect, use} from "react"
@@ -6,7 +6,7 @@ import Loading from "./components/loading.jsx"
 import MovieCard from "./components/moviecard.jsx"
 import MoviePage from "./components/moviePage.jsx"
 import {API_BASE_URL, API_OPTIONS} from "./api-config.js"
-import { createRoot } from 'react-dom/client'
+
 
 function Home() {
   const [searchText, setSearchText] = useState('')
@@ -14,6 +14,8 @@ function Home() {
   const [isLoading, setISLoading] = useState(false)
   const [movieList, setMovieList] = useState([])
   const [debouncedSearchText, setDebouncedSearchText] = useState('')
+  const heroImgsrc = `${import.meta.env.BASE_URL || '/'}hero-img.png`
+
   useDebounce(()=> setDebouncedSearchText(searchText), 700, [searchText])
 
   const fetchMovies = async(query = '')=>{
@@ -48,7 +50,7 @@ function Home() {
     <main className="pl-5 pr-5 w-full min-h-screen absolute z-0">
         <header className="center-items">
           
-          <div className=" h-[350px] md:h-[400px] overflow-hidden"><img src="../public/hero-img.png" className="object-cover"/></div>
+          <div className=" h-[350px] md:h-[400px] overflow-hidden"><img src={heroImgsrc} className="object-cover"/></div>
           <h1 className="font-bold font-sans text-4xl pt-0 pb-10 text-center text-white">Find Your Favourite <span className="text-gradient">Movies</span> without the hassle</h1>
         </header>        
         <Search searchText={searchText} setSearchText = {setSearchText}/>
@@ -73,12 +75,11 @@ function Home() {
 function App(){
   return(
 
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/movie/:id" element={<MoviePage/>}/>
       </Routes>
-    </BrowserRouter>
     
   )
 

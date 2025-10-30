@@ -3,6 +3,9 @@ import React,{use, useEffect, useState} from "react"
 import {API_BASE_URL, API_OPTIONS} from "../api-config.js"
 import Loading from "./loading.jsx";
 import {useNavigate} from "react-router-dom"
+const starIconSrc = `${import.meta.env.BASE_URL || '/'}star.png`
+const backIconSrc = `${import.meta.env.BASE_URL || '/'}back-icon-vector.jpg`
+
 
 function MoviePage(){
     const params = useParams();
@@ -11,6 +14,7 @@ function MoviePage(){
     const [loading, setLoading] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
     const navigate = useNavigate();
+    
     
     const imgURL = `https://image.tmdb.org/t/p/w200/${movie.poster_path}`;
     function handleClickBack(){
@@ -45,7 +49,7 @@ function MoviePage(){
     return(
         
         <main className="px-5 pt-5 w-full min-h-screen absolute z-0">
-            <img className="back-icon" src="/public/back-icon-vector.jpg" alt="" onClick={handleClickBack} />
+            <img className="back-icon" src={backIconSrc} alt="" onClick={handleClickBack} />
             {loading? <Loading/> : 
             errorMessage ? <p className="text-red-500">{errorMessage}</p> : 
             <div className="p-5">
@@ -64,7 +68,7 @@ function MoviePage(){
                 <div className="mt-10 text-justify">
                     <h1 className="text-white font-medium mb-5">{movie.tagline||"No tagline available"}</h1>
                     <h2 className="text-white">{movie.overview||"No description available"}</h2>
-                    <div className=" movie-insights mt-10"><img className="w-4 h-4" src="/public/star.png"/><div className="text-white font-bold">{(movie.vote_average/2).toFixed(1 )}</div><span className="dot"></span><div className="font-medium">{movie.original_language}</div><span className="dot"></span><div className="font-medium">{(movie.release_date)?.split("-")[0]}</div></div>
+                    <div className=" movie-insights mt-10"><img className="w-4 h-4" src={starIconSrc}/><div className="text-white font-bold">{(movie.vote_average/2).toFixed(1 )}</div><span className="dot"></span><div className="font-medium">{movie.original_language}</div><span className="dot"></span><div className="font-medium">{(movie.release_date)?.split("-")[0]}</div></div>
                 </div>
             </div>
             }   
