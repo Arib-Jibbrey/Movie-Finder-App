@@ -72,7 +72,7 @@ function Home() {
 function App(){
   return(
 
-    <BrowserRouter basename="/Movie-Finder-App/">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/movie/:id" element={<MoviePage/>}/>
