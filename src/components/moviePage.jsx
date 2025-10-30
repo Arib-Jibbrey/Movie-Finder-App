@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import React,{use, useEffect, useState} from "react"
 import {API_BASE_URL, API_OPTIONS} from "../api-config.js"
 import Loading from "./loading.jsx";
+import {useNavigate} from "react-router-dom"
 
 function MoviePage(){
     const params = useParams();
@@ -9,8 +10,11 @@ function MoviePage(){
     const [movie, setMovie] = useState({})
     const [loading, setLoading] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+    const navigate = useNavigate();
     
     const imgURL = `https://image.tmdb.org/t/p/w200/${movie.poster_path}`;
+    function handleClickBack(){
+        navigate('/');}
 
     const fetchMovieDetails = async()=>{
         setLoading(true);
@@ -40,7 +44,8 @@ function MoviePage(){
 
     return(
         
-        <main className="pl-5 pr-5 w-full min-h-screen absolute z-0">
+        <main className="px-5 pt-5 w-full min-h-screen absolute z-0">
+            <img className="back-icon" src="/public/back-icon-vector.jpg" alt="" onClick={handleClickBack} />
             {loading? <Loading/> : 
             errorMessage ? <p className="text-red-500">{errorMessage}</p> : 
             <div className="p-5">
@@ -66,6 +71,6 @@ function MoviePage(){
         </main>
 
     )
-}
 
+}
 export default MoviePage
