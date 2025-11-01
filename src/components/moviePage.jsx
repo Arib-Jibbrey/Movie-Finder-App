@@ -56,7 +56,7 @@ function MoviePage(){
                 <h1 className="text-white font-bold text-3xl mb-5">{movie.title} [{movie.release_date?.split("-")[0]}]</h1>
                 <div className="flex flex-row">
                     <img src={imgURL}/>
-                    <div className="text-white font-light text-[12px] md:text-[18px] pl-3 md:pl-10 flex flex-col flex-1 justify-center ">
+                    <div className="text-white font-light text-[9px] md:text-[18px] pl-3 md:pl-10 flex flex-col flex-1 justify-center ">
                         <div>Vibe:  {movie.genres ? <span>{movie.genres.map((genre)=>(<span key={genre.id}>{genre.name} | </span>))}</span> : 'N/A'}</div><br/>
                         <div>Duration:  {movie.runtime? `${Math.floor(movie.runtime/60)}h ${movie.runtime%60}m` : 'N/A'}</div><br/>
                         <div>Origin:  {movie.origin_country}</div><br />
