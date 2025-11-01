@@ -13,9 +13,9 @@
   
     background-image: url(/BG.png);
     background-position: center top;
-    width: 100%;
+    
 
-    @apply bg-cover bg-no-repeat 
+    @apply bg-cover
   }
 }
 

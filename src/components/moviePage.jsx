@@ -47,20 +47,20 @@ function MoviePage(){
     
 
     return(
-        
-        <main className="px-5 pt-5 w-full min-h-screen absolute z-0">
-            <img className="back-icon" src={backIconSrc} alt="" onClick={handleClickBack} />
+        <div className=" bg-img w-full min-h-screen">
+        <main className="p-3 md:p-5">
+            <img className="back-icon mb-5" src={backIconSrc} alt="" onClick={handleClickBack} />
             {loading? <Loading/> : 
             errorMessage ? <p className="text-red-500">{errorMessage}</p> : 
-            <div className="p-5">
+            <div className="">
                 <h1 className="text-white font-bold text-3xl mb-5">{movie.title} [{movie.release_date?.split("-")[0]}]</h1>
                 <div className="flex flex-row">
                     <img src={imgURL}/>
-                    <div className=" ml-5 text-white font-medium pl-3 flex flex-col flex-1 justify-center">
-                        <div>Vibe: {movie.genres ? <span>{movie.genres.map((genre)=>(<span key={genre.id}>{genre.name}, </span>))}</span> : 'N/A'}</div>
-                        <div>Origin: {movie.origin_country}</div>
-                        <div>Lanuage: {movie.original_language}</div>
-                        <div>R-Rated? {movie.adult? <span className="text-red-500">yes</span>: <span className="text-green-500">No</span>}</div>
+                    <div className="text-white font-medium pl-3 md:pl-10 flex flex-col flex-1 justify-center">
+                        <div>Vibe:  {movie.genres ? <span>{movie.genres.map((genre)=>(<span key={genre.id}>{genre.name} | </span>))}</span> : 'N/A'}</div>
+                        <div>Origin:  {movie.origin_country}</div>
+                        <div>Lanuage:  {movie.original_language}</div>
+                        <div>R-Rated?  {movie.adult? <span className="text-red-500">yes</span>: <span className="text-green-500">No</span>}</div>
                         <div>Released on: {movie.release_date}</div>
                     </div>
                 </div>
@@ -73,6 +73,7 @@ function MoviePage(){
             </div>
             }   
         </main>
+    </div>
 
     )
 

@@ -46,8 +46,8 @@ function Home() {
 
   //redering the home page
   return (
-   
-    <main className="pl-5 pr-5 w-full min-h-screen absolute z-0">
+   <div className="bg-img w-full h-screen absolute -z-10">
+    <main className="px-5">
         <header className="center-items">
           
           <div className=" h-[350px] md:h-[400px] overflow-hidden"><img src={heroImgsrc} className="object-cover"/></div>
@@ -68,6 +68,7 @@ function Home() {
 
         </section>
     </main>
+  </div>
   
   )
 }
