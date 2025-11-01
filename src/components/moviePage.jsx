@@ -57,10 +57,11 @@ function MoviePage(){
                 <div className="flex flex-row">
                     <img src={imgURL}/>
                     <div className="text-white font-medium pl-3 md:pl-10 flex flex-col flex-1 justify-center">
-                        <div>Vibe:  {movie.genres ? <span>{movie.genres.map((genre)=>(<span key={genre.id}>{genre.name} | </span>))}</span> : 'N/A'}</div>
-                        <div>Origin:  {movie.origin_country}</div>
-                        <div>Lanuage:  {movie.original_language}</div>
-                        <div>R-Rated?  {movie.adult? <span className="text-red-500">yes</span>: <span className="text-green-500">No</span>}</div>
+                        <div>Vibe:  {movie.genres ? <span>{movie.genres.map((genre)=>(<span key={genre.id}>{genre.name} | </span>))}</span> : 'N/A'}</div><br/>
+                        <div>Duration:  {movie.runtime? `${Math.floor(movie.runtime/60)}h ${movie.runtime%60}m` : 'N/A'}</div><br/>
+                        <div>Origin:  {movie.origin_country}</div><br />
+                        <div>Lanuage:  {movie.original_language}</div><br />
+                        <div>R-Rated?  {movie.adult? <span className="text-red-500">yes</span>: <span className="text-green-500">No</span>}</div><br />
                         <div>Released on: {movie.release_date}</div>
                     </div>
                 </div>
