@@ -51,7 +51,7 @@ function Home() {
         <header className="center-items">
           
           <div className=" h-[350px] md:h-[400px] overflow-hidden"><img src={heroImgsrc} className="object-cover"/></div>
-          <h1 className="font-bold font-sans text-4xl pt-0 pb-10 text-center text-white">Find Your Favourite <span className="text-gradient">Movies</span> without the hassle</h1>
+          <h1 className="font-bold font-sans text-4xl text-center text-white">Find Your Favourite <span className="text-gradient">Movies</span> without the hassle</h1>
         </header>        
         <Search searchText={searchText} setSearchText = {setSearchText}/>
         <section>
