@@ -56,7 +56,7 @@ function MoviePage(){
                 <h1 className="text-white font-bold text-3xl mb-5">{movie.title} [{movie.release_date?.split("-")[0]}]</h1>
                 <div className="flex flex-row">
                     <img src={imgURL}/>
-                    <div className="text-white font-medium pl-3 md:pl-10 flex flex-col flex-1 justify-center">
+                    <div className="text-white font-light text-[12px] md:text-[18px] pl-3 md:pl-10 flex flex-col flex-1 justify-center ">
                         <div>Vibe:  {movie.genres ? <span>{movie.genres.map((genre)=>(<span key={genre.id}>{genre.name} | </span>))}</span> : 'N/A'}</div><br/>
                         <div>Duration:  {movie.runtime? `${Math.floor(movie.runtime/60)}h ${movie.runtime%60}m` : 'N/A'}</div><br/>
                         <div>Origin:  {movie.origin_country}</div><br />
@@ -66,7 +66,7 @@ function MoviePage(){
                     </div>
                 </div>
                
-                <div className="mt-10 text-justify">
+                <div className="mt-10 text-justify font-light">
                     <h1 className="text-white font-medium mb-5">{movie.tagline||"No tagline available"}</h1>
                     <h2 className="text-white">{movie.overview||"No description available"}</h2>
                     <div className=" movie-insights mt-10"><img className="w-4 h-4" src={starIconSrc}/><div className="text-white font-bold">{(movie.vote_average/2).toFixed(1 )}</div><span className="dot"></span><div className="font-medium">{movie.original_language}</div><span className="dot"></span><div className="font-medium">{(movie.release_date)?.split("-")[0]}</div></div>
